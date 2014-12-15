@@ -131,15 +131,15 @@
     }
     .scrubber a{
         display: block;
-        height: 26px;
-        line-height: 26px;
-        font-size: 12px;
-        border-right: 2px solid rgba(255,255,255,.6);
-        border-right-color: rgba(255,255,255,.6);
+        height: 25px;
+        line-height: 25px;
+        font-size: 13px;
+        border-right: 2px solid #fff;
+        border-right-color: #fff;
         padding-right: 5px;
-        color: rgba(255,255,255,.9);
+        color: #fff;
         text-decoration: none;
-        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        text-shadow: 0px 0px 1px #8B4513;
         text-align: right;
     }
     .scrubber a:hover,
@@ -163,8 +163,8 @@
     .content_month {
         height: 30px;
         line-height: 30px;
-        color: #a5a5a5;
-        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        color: #fff;
+        text-shadow: 0px 0px 1px #8B4513;
         font-weight: bold;
         font-size: 14px;
         position: relative;
