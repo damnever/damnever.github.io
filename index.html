@@ -345,7 +345,13 @@
 
                 // Fixed date line.
                 window.onscroll = function() {
-                    var top = document.body.scrollTop;
+                    var top = 0;
+                    if (document.body.scrollTop == 0) { // Firefox
+                        top = document.documentElement.scrollTop;
+                    }
+                    if (document.documentElement.scrollTop == 0) { // Chrome
+                        top = document.body.scrollTop;
+                    }
                     var scrubber = g('scrubber');
                     if(top > 200) {
                         scrubber.style.position = 'fixed';
@@ -361,6 +367,7 @@
                     update_scrubber_month( top );
 
                 }
+                
         </script>
     </body>
 </html>
