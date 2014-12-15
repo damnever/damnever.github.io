@@ -18,7 +18,7 @@ data.push({
     'date'  : '2012-9-7',
     'title' : '步入大学',
     'intro' : '带着满腔的热血进入<a href="http://jsj.csuft.edu.cn/" target="_blank">中南林业科技大学软件工程专业</a>。',
-    'summary' : '误入歧途！',
+    'summary' : '误入Qi途！',
 })
 
 data.push({
