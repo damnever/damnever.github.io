@@ -40,7 +40,7 @@
                 </div>
                 <div class="content_item_head">
                     <div class="content_item_head_title">
-                        <div class="content_item_head_title_lunar">{lunar}</div>
+                        <div class="content_item_head_title_day">{day}</div>
                         {title}
                     </div>
                 <div class="content_item_head_intro">
@@ -136,7 +136,7 @@
                     </div>
                     <div class="content_item_head">
                         <div class="content_item_head_title">
-                            <div class="content_item_head_title_lunar">..</div>
+                            <div class="content_item_head_title_day">..</div>
                             2014-03-30
                         </div>
                         <div class="content_item_head_intro">
@@ -179,8 +179,9 @@
                 var date = new Date(data[i].date);
                 var year = date.getFullYear();
                 var month = date.getMonth() + 1;
+                var day = date.getDate();
                 
-                var lunar = GetLunarDateString(date);
+                //var lunar = GetLunarDateString(date);
                 
                 if (!list[year]) {
                     list[year] = {};
@@ -190,9 +191,10 @@
                 }
 
                 var item = data[i];
-                item.lunar = lunar[0] + "<br/>&nbsp;&nbsp;" + lunar[1];
+                //item.lunar = lunar[0] + "<br/>&nbsp;&nbsp;" + lunar[1];
                 item.year = year;
                 item.month = month;
+                item.day = day;
 
                 list[year][month].push(item);
                 
@@ -241,7 +243,7 @@
 
                             var item_html = tpl_item
                                     .replace(/\{title\}/g, item_data.title)
-                                    .replace(/\{lunar\}/g, item_data.lunar)
+                                    .replace(/\{day\}/g, item_data.day)
                                     .replace(/\{intro\}/g, item_data.intro)
                                     .replace(/\{summary\}/g, item_data.summary);
                             html_item.push(item_html);

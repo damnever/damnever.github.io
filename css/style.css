@@ -219,7 +219,7 @@
         padding: 0 0 10px 56px;
         position: relative;
     }
-    .content_item_head_title_lunar {
+    .content_item_head_title_day {
         width: 46px;
         height: 46px;
         background: rgba(0,0,0,.1);
@@ -228,8 +228,8 @@
         left: 0; top: 0;
         overflow: hidden;
         color: #fff;
-        font-size: 23px;
-        line-height: 26px;
+        font-size: 40px;
+        text-align: center;
     }
     .content_item_head_intro {
         color: #1C1C1C;

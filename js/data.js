@@ -1,7 +1,7 @@
 var data = [];
 
 data.push({
-    'date'  : '1994/12/3',
+    'date'  : '1994/11/6',
     'title' : '我来啦',
     'intro' : '顶着<a href="http://baike.baidu.com/view/32644.htm#8" target="_blank">法律</a>的约束来到这个世界!',
     'summary' : '在天朝非法逗留。',
