@@ -45,7 +45,7 @@ data.push({
 data.push({
     'date'  : '2013-9-5',
     'title' : '一个艰难的学期',
-    'intro' : '想要改变，<a href="http://user.qzone.qq.com/1186561974/2" target="_blank">动员舍友</a>，结果…… <br />数据结构与算法竟然是用的 C 语言？cin, cout 和 <<, >> 都不知道哪个配哪个了，第一次觉得时间过得很快。期间折腾过 WordPress，超哥的小栈(dongxiaochao.biz <a href="https://www.google.com.hk/?hl=zh-cn#newwindow=1&safe=strict&hl=zh-cn&q=%E8%B6%85%E5%93%A5%E7%9A%84%E5%B0%8F%E6%A0%88" target="_blank">Google 上的残留碎片</a>)已死去。',
+    'intro' : '想要改变，<a href="http://user.qzone.qq.com/1186561974/blog/1380079848" target="_blank">动员舍友</a>，结果…… <br />数据结构与算法竟然是用的 C 语言？cin, cout 和 <<, >> 都不知道哪个配哪个了，第一次觉得时间过得很快。期间折腾过 WordPress，超哥的小栈(dongxiaochao.biz <a href="https://www.google.com.hk/?hl=zh-cn#newwindow=1&safe=strict&hl=zh-cn&q=%E8%B6%85%E5%93%A5%E7%9A%84%E5%B0%8F%E6%A0%88" target="_blank">Google 上的残留碎片</a>)已死去。',
     'summary' : '迷茫日子里的些许充实，这种感觉真的很棒！',
 })
 
@@ -59,7 +59,7 @@ data.push({
 data.push({
     'date'  : '2014-9-10',
     'title' : '一个多星期',
-    'intro' : '学校开设 J2EE，心想做网站的是不是该逃了？花了一天在网上扫了一遍 JSP 基础知识，晚上蒙生一个想法，花了一个多星期打造了一个小型论坛类网站 <a href="http://deathzuo.sinaapp.com" target="_blank">DeathZuo</a>，只用了教材前四章知识(没有JavaBean,Servlet ...)，别提多烂了，已关掉 JVM。',
+    'intro' : '学校开设 J2EE，心想做网站的是不是该逃了？花了一天在网上扫了一遍 JSP 基础知识，晚上蒙生一个想法，花了一个多星期打造了一个小型论坛类网站 <a href="http://deathzuo.sinaapp.com" target="_blank">DeathZuo</a>(作死)，只用了教材前四章知识(没有JavaBean,Servlet ...)，别提多烂了，已关掉 JVM。',
     'summary' : '说不定那天就派上用场了!',
 })
 
