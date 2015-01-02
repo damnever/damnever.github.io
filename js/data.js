@@ -73,6 +73,6 @@ data.push({
 data.push({
     'date'  : '2015/1/2',
     'title' : '五天',
-    'intro' : '丫的课程设计，只用了一个Activity差点没把自己恶心死。这都不算什么，最不爽的是文档要贴所有的源码，复制粘贴用了我一两个小时，一百多页，感觉都能出书了，老师你看吗？一时竟无语凌噎不是随便就能体会的……BUG？不留下几个难泄我愤愤之情！<br />Ubuntu上命令行工具byzanz生成的，这效果杠(zha)杠(zha)的：<br/><img src="./imgs/aplayer.gif" width="400" height="600"/>',
+    'intro' : '丫的课程设计，只用了一个Activity差点没把自己恶心死。这都不算什么，最不爽的是文档要贴所有的源码，复制粘贴用了我一两个小时，一百多页，感觉都能出书了，老师你看吗？一时竟无语凌噎不是随便就能体会的……BUG？不留下几个难泄我愤愤之情！<br />这效果杠(zha)杠(zha)的：<br/><video controls="controls" muted="muted" src="./imgs/aplayer_view.ogv" width="500" height="600" />',
     'summary' : '一个学期又要完了。从一个错误点出发，总比一直不开始要好！',
 });
