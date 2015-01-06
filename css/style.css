@@ -111,7 +111,7 @@
         font-size: 19px;
         color: #fff; text-shadow: 1px -2px 1px #ff4500;
     }
-    .level {
+    .level, .level a {
         color: #fff; /*#8B4513 rgba(0,0,0,.6)*/
         font-size: 17px;
         text-shadow: 0px 0px 1px #8B4513;
