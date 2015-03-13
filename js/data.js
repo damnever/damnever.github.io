@@ -78,6 +78,13 @@ data.push({
     'summary' : '2015了？推延2012计划的2013一定要开始的2014一定要变得niubi的niubi计划！',
 });
 
+data.push({
+    'date'  : '2015/03/13',
+    'title' : '<i style="color:#00eaf5;">SoQoo</i>',
+    'intro' : 'SoQoo - Magnet and Torrent search engine!<br/>Go to: <a href="http://www.soqoo.net/" target="_blank">http://www.SoQoo.net/<br/><img src="./imgs/soqoo.png" width="180"></img></a>',
+    'summary' : 'Best Regards!',
+});
+
 // 忽略
 data.push({
     'date'  : '2015/01/02',
