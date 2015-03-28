@@ -161,4 +161,4 @@ IOLoop -> instance()
 
 ***
 
-<span class="fresh">原文链接：[{{ site.url }}{{ page.url }}]({{ site.url }}{{ page.url }})，转载请注明出处。</span>
+<span class="fresh">转载请注明出处，原文链接：<a href="{{ site.url }}{{ page.url }}">{{ site.url }}{{ page.url }}</a>。</span>
