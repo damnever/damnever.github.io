@@ -5,8 +5,8 @@ header-img: img/home-bg.jpg
 email: dxc.wolf@gmail.com
 description: "Damnever'd Blog, 人在 Qi 途."
 baseurl: ""
-url: #"damnever.github.io"
-# facebook_username:  Wolfdxc
+url: "damnever.github.io"
+# twitter_username:  Wolfdxc
 github_username:  Damnever
 
 # Build settings
