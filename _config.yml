@@ -1,0 +1,21 @@
+# Site settings
+title: Damnever's Blog
+author: Damnever
+header-img: img/home-bg.jpg
+email: dxc.wolf@gmail.com
+description: "Damnever'd Blog, 人在 Qi 途."
+baseurl: ""
+url: #"damnever.github.io"
+# facebook_username:  Wolfdxc
+github_username:  Damnever
+
+# Build settings
+encoding: utf-8
+markdown: kramdown
+kramdown:
+   input: GFM
+   hard_wrap: false
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
