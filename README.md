@@ -1,7 +1,7 @@
 ## Damnever's Blog
 
-http://damnever.github.io
+https://damnever.github.io/
 
 ---
 
-Old page: http://damnever.github.io/oldpage/index.html
+Old page: https://damnever.github.io/oldpage/index.html
