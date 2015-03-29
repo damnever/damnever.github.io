@@ -162,5 +162,3 @@ IOLoop -> instance()
 <span id="1" class="caption text-muted">[[1]](#r1) `__init__()`并不是真正意义上的构造方法，`__init__()`所做的工作是在类的对象创建好之后进行变量的初始化。`__new__()`才会真正的创建实例，是类的构造方法。</span>
 
 ***
-
-<span class="fresh">转载请注明出处，原文链接：<a href="{{ site.url }}{{ page.url }}">{{ site.url }}{{ page.url }}</a>。</span>

@@ -6,11 +6,11 @@ description: "I'm Damnever (X.C.Dong)."
 header-img: "img/about-bg.jpg"
 ---
 
-**目前就读于[林坑大（2012～）](http://jsj.csuft.edu.cn/index.htm)。身残智缺，在迷雾之中游走数年：[人在 Qi 途]({{ site.baseurl }}/oldpage/index.html)**。
+**就读于[林坑大（2012～）](http://jsj.csuft.edu.cn/index.htm)。身残智缺，在迷雾之中游走数年：[人在 Qi 途]({{ site.baseurl }}/oldpage/index.html)**。
 
 ***
 
-#### 自称 "The hole digger"，细数身后那些坑：
+#### 自喻 "the hole digger"，细数身后那些坑：
 
 > - [<s>DeathZuo</s>](http://deathzuo.sinaapp.com/)：这个 JSP 小论坛其实只是为了给我逃课找借口～，JavaBean，Servlet 都不熟（你懂的），已关。
 > - [LTsite](https://github.com/Damnever/LTsite)：一个基于 Python WSGI 的微框架，及用其实现的小站 [D2AK](http://d2ak.sinaapp.com/)。写的很烂，等我内功足够之后，再来伺候它。
@@ -23,6 +23,8 @@ header-img: "img/about-bg.jpg"
 #### 联系我
 > - E-mail: dxc.wolf#gmail.com (# -> @)
 > - 在全球最大的同性交友社区[Github](https://github.com/Damnever)上 Star/Fork/Follow me O(∩_∩)O~.
+
+
 
 ***
 
