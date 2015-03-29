@@ -3,7 +3,7 @@ title: Damnever's Blog
 author: Damnever
 header-img: img/home-bg.jpg
 email: dxc.wolf@gmail.com
-description: "Damnever'd Blog, 人在 Qi 途."
+description: "Damnever, Damnever'd Blog, 人在 Qi 途."
 baseurl: ""
 url: "https://damnever.github.io/"
 # twitter_username:  Wolfdxc
@@ -19,3 +19,7 @@ highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+comments :
+  provider : duoshuo
+  duoshuo :
+    short_name : damnever
