@@ -4,4 +4,7 @@ https://damnever.github.io/
 
 ---
 
-Old page: https://damnever.github.io/oldpage/index.html
+Old page: http://damnever.github.io/oldpage/index.html
+
+---
+Poewred by [Jekyll](http://jekyllrb.com/).
