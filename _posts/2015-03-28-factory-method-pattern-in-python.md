@@ -73,7 +73,7 @@ tags:
 
 ---
 
-还是来看一个代码片段，看看这个魔法是如何进行的：
+看看这个简化版的代码片段，了解一下这个魔法是如何进行的：
 {% highlight python linenos %}
 from __future__ import print_function
 
@@ -159,7 +159,7 @@ IOLoop -> instance()
 
 ---
 
-<span id="1" class="caption text-muted">[[1]](#r1) `__init__()`并不是真正意义上的构造方法，`__init__()`所做的工作是在累的对象创建好之后进行变量的初始化。`__new__()`才会真正的创建实例，是类的构造方法。</span>
+<span id="1" class="caption text-muted">[[1]](#r1) `__init__()`并不是真正意义上的构造方法，`__init__()`所做的工作是在类的对象创建好之后进行变量的初始化。`__new__()`才会真正的创建实例，是类的构造方法。</span>
 
 ***
 
