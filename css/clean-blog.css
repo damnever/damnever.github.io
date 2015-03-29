@@ -103,4 +103,4 @@ body{webkit-tap-highlight-color:#0085a1}
 #ds-reset .ds-avatar img:hover{-webkit-transform:rotateZ(360deg);-moz-transform:rotateZ(360deg);transform:rotateZ(360deg)}
 #ds-reset .ds-powered-by{display:none}
 #ds-thread{clear:none !important;float:left;margin-top:0;width:100%}
-#footer-define{border:1px solid #eee;border-radius: 3px;font-size: 14px;padding:8px 10px;}
+#footer-define{border:1px solid #eee;border-radius:3px;font-size:14px;padding:8px 10px;}
