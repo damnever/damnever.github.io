@@ -22,7 +22,7 @@ header-img: "img/about-bg.jpg"
 
 #### 联系我
 > - E-mail: dxc.wolf#gmail.com (# -> @)
-> - Fork/Star/Follow me in [Github](https://github.com/Damnever) O(∩_∩)O~.
+> - 在全球最大的同性交友社区[Github](https://github.com/Damnever)上 Star/Fork/Follow me O(∩_∩)O~.
 
 ***
 
