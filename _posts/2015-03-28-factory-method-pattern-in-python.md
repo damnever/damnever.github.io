@@ -1,9 +1,11 @@
 ---
-layout:     post
-title:      工厂方法模式在 Python 中的应用
-subtitle:   坑爹的 Win10 + A卡让我玩不了 LOL，%>_<%，于是在 Ubuntu 下诞生了这个 Blog
-date:       2015-3-28 23:30:31
-author:     Damnever
+layout:      post
+title:       工厂方法模式在 Python 中的应用
+subtitle:    坑爹的 Win10 + A卡让我玩不了 LOL，%>_<%，于是在 Ubuntu 下诞生了这个 Blog
+date:        2015-3-28 23:30:31
+author:      Damnever
+keywords:    Damnever,设计模式,工厂方法模式,Python,Tornado
+description: 工厂方法模式在 Python 中的应用
 categories:
   - 设计模式
   - Python
