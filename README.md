@@ -1,6 +1,6 @@
 ## Damnever's Blog
 
-https://damnever.github.io/
+http://damnever.github.io/
 
 ---
 

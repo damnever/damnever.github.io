@@ -5,33 +5,29 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
                     <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">
+                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank" title="订阅本站">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
-                    {% if site.twitter_username %}
                     <li>
-                        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+                        <a href="http://www.douban.com/people/LastD001/" target="_blank" title="豆瓣">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                <i class="fa icon-douban fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
-                    {% endif %}
-                    {% if site.github_username %}
                     <li>
-                        <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                        <a href="https://github.com/Damnever" target="_blank" title="Github">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
-                    {% endif %}
                 </ul>
                 <p id="footer" class="copyright text-muted">&copy; {{ site.time | date: '%Y' }}  Damnever. Powered by <a class="text-muted" href="http://jekyllrb.com/" target="_blank">jekyll</a>.</p>
             </div>
