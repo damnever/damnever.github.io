@@ -58,7 +58,7 @@ tags:
 +----------------------------+    +------------------------------+
 {% endhighlight %}
 
-`util.Configurable`的文档是这样描述的：Base class for configurable interfaces.这是个抽象类，它的构造函数(<span id="r1">这里是说`initialize()`，通过`__new__()`来调用[[1]](#1)</span>)给其实现子类之一(应该就是这厮了`ioloop.IOLoop`)扮演工厂函数的角色。还说了其实现子类可以用`configure()`在运行时全局的改变实例，不过这里貌似没用到。通过用`initialize()`作为工厂方法，这个接口就像正常的类一样，`isinstance`之类的方法都可以正常使用。这种模式在这些时候是最有用的：当选择的实现可能是一个全局的决定时（如果`epoll`可用就会代替`select`，在*unix上都可用），或者`previously-monolithic class`(what?)被分为特定的子类时。
+`util.Configurable`的文档是这样描述的：Base class for configurable interfaces.这是个抽象类，它的构造函数(<span id="r1">`__new__()` [[1]](#1)</span>)给其实现子类之一(应该就是这厮了`ioloop.IOLoop`)扮演工厂函数的角色。还说了其实现子类可以用`configure()`在运行时全局的改变实例，不过这里貌似没用到。通过用构造方法作为工厂方法，这个接口就像正常的类一样，`isinstance`之类的方法都可以正常使用。这种模式在这些时候是最有用的：当选择的实现可能是一个全局的决定时（如果`epoll`可用就会代替`select`，在*unix上都可用），或者`previously-monolithic class`(what?)被分为特定的子类时。
 
 看了类文档，眼前一亮，难道这就是我们上节设计模式课所说的工厂方法模式，不是也是了，反正上课也没听太懂……
 
@@ -66,7 +66,7 @@ tags:
 
 又了上网了解一下工厂方法模式，拙谈这几个类的角色：
 
-> - `util.Configurable`：使用了黑魔法-元类，通过调用工厂方法`initialize()`来创建实例。抽象工厂。
+> - `util.Configurable`：通过构造函数`__new__()`作为工厂方法来创建实例。抽象工厂。
 > - `ioloop.IOLoop`：当你调用`tornado.ioloop.IOLoop.instance().start()`时，会根据你所使用的平台通过`configrable_defult()`来返回`SlectIOLoop`/`EpollIOLoop`/`KQueueIOLoop`中最佳的一个类给`util.Configurable`来创建实例。具体工厂。
 > - `ioloop.PollIOLoop`：为`IOLoop`来创建接口一致的`select-like`方法。抽象产品。
 > - `platform.select.SelectIOLoop/platform.epoll.EpollIOLoop/platform.kqueue.KQueueIOLoop`：这几个只有被选择的份，已经不能再具体了。具体产品。
@@ -82,6 +82,7 @@ EPOLL, SELECT = 2, 1
 class Configurable(object):
 
     def __new__(cls, **kwargs):
+        """ 构造器， 工厂方法 """
         impl = cls.configurable_default()
         instance = super(Configurable, cls).__new__(impl)
         instance.initialize(**kwargs)
@@ -92,7 +93,7 @@ class Configurable(object):
         raise NotImplementedError()
 
     def initialize(self): # 都可以替换成 __init__，因为__init__ 并不是构造函数
-        """ 工厂方法 """
+        pass
 
 
 class IOLoop(Configurable):
@@ -153,9 +154,9 @@ IOLoop -> instance()
 <__main__.EPollIOLoop object at 0x7f91f7da1590>
 {% endhighlight %}
 
-在这里`Configurable`是一个元类，他被隐式的继承到了子类`IOLoop`，所以在`IOLoop.instance()`里调用`IOLoop()`时，会调用`__new__()`来实例化一个对象，调用`__new__`的时候会调用`IOLoop.configurable_default()`来获取一个最佳的选择（`EPollIOLoop`）,然后实例化这个选择，返回这个实例，所以`IOLoop()`得到了实例是一个`EPollIOLoop`对象。
+在`IOLoop.instance()`里调用`IOLoop()`时，会调用`Configurable`的`__new__()`来实例化一个对象，调用`__new__`的时候会调用`IOLoop.configurable_default()`来获取一个最佳的选择（`EPollIOLoop`）,然后实例化这个选择，返回这个实例，所以`IOLoop()`得到了实例是一个`EPollIOLoop`对象。
 
-**可见工厂方法模式的核心就是如何去实例化并得到一个具体的对象，而这个对象又恰恰是我们想要的。`Tornado`这里就用的很好，可以在不同的平台上获得一个一致的接口，而不需要每个平台都去调用一个不同的接口来完成相似的工作。**
+**可见工厂方法模式的核心就是如何用一个与具体对象无关的类去实例化并得到一个具体的实例对象，而这个实例对象又恰恰是我们想要的。`Tornado`这里就用的很好，可以在不同的平台上获得一个一致的接口，而不需要每个平台都去调用一个不同的接口来完成相似的工作。**
 
 ---
 
