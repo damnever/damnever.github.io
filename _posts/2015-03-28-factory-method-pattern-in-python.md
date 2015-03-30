@@ -5,7 +5,7 @@ subtitle:    坑爹的 Win10 + A卡让我玩不了 LOL，%>_<%，于是在 Ubunt
 date:        2015-3-28 23:30:31
 author:      Damnever
 keywords:    Damnever,设计模式,工厂方法模式,Python,Tornado
-description: 工厂方法模式在 Python 中的应用
+description: 工厂方法模式在 Python 中的应用，ioloop 与 Configurable
 categories:
   - 设计模式
   - Python
