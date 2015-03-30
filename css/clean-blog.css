@@ -1,9 +1,10 @@
-body{font-family:font-family:Helvetica,Tahoma,Arial,STXihei,"华文细黑","Microsoft YaHei","微软雅黑",SimSun,"宋体",Heiti,"黑体",sans-serif;font-size:20px;color:#404040}
+body{font-family:Avenir,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;font-size:20px;color:#404040}
 p{line-height:1.5;margin:30px 0}
 p a{text-decoration:underline}
-h1,h2,h3,h4,h5,h6{font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:800}
-a{color:#404040}
+h1,h2,h3,h4,h5,h6{font-family:'Helvetica Neue','Microsoft Yahei','Hiragino Sans GB','Microsoft Sans Serif','WenQuanYi Micro Hei',sans-serif;font-weight:800}
+a{color:#1abc9c}
 a:hover,a:focus{color:#0085a1}
+ins,a{text-decoration:none}
 a img:hover,a img:focus{cursor:zoom-in}
 blockquote{color:#808080;font-style:italic}
 hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#cc0000}
@@ -51,6 +52,7 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#cc0000}
 p{font-size:16px}
 .caption{text-align:left;font-size:14px;padding:10px;font-style:italic;margin:0;display:block;border-bottom-right-radius:5px;border-bottom-left-radius:5px}
 footer{padding:20px 0 23px}
+footer li a{color:#404040}
 footer .list-inline{margin:0;padding:0}
 footer .copyright{font-size:14px;text-align:center;margin-bottom:0}
 #footer a{text-decoration:none}
@@ -103,4 +105,14 @@ body{webkit-tap-highlight-color:#0085a1}
 #ds-reset .ds-avatar img:hover{-webkit-transform:rotateZ(360deg);-moz-transform:rotateZ(360deg);transform:rotateZ(360deg)}
 #ds-reset .ds-powered-by{display:none}
 #ds-thread{clear:none !important;float:left;margin-top:0;width:100%}
-#footer-define{border:1px solid #eee;border-radius:3px;font-size:14px;padding:8px 10px;}
+#footer-define{border:1px solid #eee;border-radius:3px;font-size:14px;padding:8px 10px}
+blockquote{font-family:Avenir,'Helvetica Neue','Microsoft Yahei','Hiragino Sans GB','Microsoft Sans Serif','WenQuanYi Micro Hei',sans-serif;padding-left:0;margin:0 0.5em 0 1em;word-wrap:break-word;word-break:break-all}
+@media only screen and ( max-width:640px ){blockquote{margin:1em 0}
+}abbr{cursor:help}
+mark{background:#fffdd1;border-bottom:1px solid #ffedce;padding:2px;margin:0 5px}
+[draggable]{cursor:move}
+sub,sup{font-size:75%;line-height:0;position:relative}
+:root sub,:root sup{vertical-align:baseline}
+sup{top:-0.5em}
+sub{bottom:-0.25em}
+figcaption{font-size:0.9em;color:#888}

@@ -158,6 +158,8 @@ IOLoop -> instance()
 
 **可见工厂方法模式的核心就是如何用一个与具体对象无关的类去实例化并得到一个具体的实例对象，而这个实例对象又恰恰是我们想要的。`Tornado`这里就用的很好，可以在不同的平台上获得一个一致的接口，而不需要每个平台都去调用一个不同的接口来完成相似的工作。**
 
+BTW: `Tornado`的源码远比我想象的要复杂，简单的看了一下`httpserver`的结构`岂止于`错综复杂，看来想弄懂`app = Application();  http_server = tornado.httpserver.HTTPServer(app); http_server.listen(options.port); tornado.ioloop.IOLoop.instance().start()`这几句简单的代码都不容易，but sooner and later ......
+
 ---
 
 <span id="1" class="caption text-muted">[[1]](#r1) `__init__()`并不是真正意义上的构造方法，`__init__()`所做的工作是在类的对象创建好之后进行变量的初始化。`__new__()`才会真正的创建实例，是类的构造方法。</span>
