@@ -1,5 +1,9 @@
 /* to make lines scroll instead of wrap */
 /* from http://stackoverflow.com/a/23393920 */
+pre{ word-wrap:break-word;word-break:break-all;overflow: auto; }
+.linenos pre { padding-right: 0; border-top-right-radius:0em; border-bottom-right-radius:0em; border-color: #eee; background: transparent; }
+.linenos + .code pre { border-top-left-radius:0em; border-bottom-left-radius:0em; margin-left: 0; }
+.table-responsive table {border: 1px solid #ddd; margin-bottom: 0;}
 .highlight pre code * { white-space: nowrap; }
 .highlight pre { overflow-x: auto; }
 .highlight pre code { white-space: pre; }

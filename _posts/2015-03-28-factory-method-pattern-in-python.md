@@ -28,7 +28,7 @@ tags:
 ---
 
 不知天高地厚的看了一下`Tornado`的`ioloop`模块的源码，结果是毫无头绪，其它的就暂且不说。`tornado.ioloop.IOLoop.instance().start()`是用来启动`Tornado`的，但是在源码里面`IOLoop().start()`压根就没实现，子类`PollIOLoop().start()`倒是实现了。看看`instance()`到底是啥：
-{% highlight python linenos %}
+{% highlight python linenos=table %}
 >>> import tornado.ioloop
 >>> repr(tornado.ioloop.IOLoop.instance())
 '<tornado.platform.epoll.EPollIOLoop object at 0x7f4ac177ae50>'
@@ -74,7 +74,7 @@ tags:
 ---
 
 看看这个简化版的代码片段，了解一下这个魔法是如何进行的：
-{% highlight python linenos %}
+{% highlight python linenos=table %}
 from __future__ import print_function
 
 EPOLL, SELECT = 2, 1
@@ -143,7 +143,7 @@ if __name__ == '__main__':
 	print(repr(IOLoop.instance()))
 {% endhighlight %}
 输出
-{% highlight python linenos %}
+{% highlight python linenos=table %}
 IOLoop -> configurable_default()
 EPollIOLoop -> initialize()
 PollIOLoop -> initialize()

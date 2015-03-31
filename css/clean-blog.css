@@ -117,5 +117,4 @@ sub,sup{font-size:75%;line-height:0;position:relative}
 sup{top:-0.5em}
 sub{bottom:-0.25em}
 figcaption{font-size:0.9em;color:#888}
-pre{ word-wrap:break-word;word-break:break-all;overflow: auto;display:block; }
 #content, li { line-height: 1.5;}
