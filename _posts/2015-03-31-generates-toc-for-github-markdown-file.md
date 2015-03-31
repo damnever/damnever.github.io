@@ -25,7 +25,7 @@ tags:
 ---
 
 首先必须保证你的标题格式是这样的才能使用这个脚本，用`#`表示标题格式的还要添加`id`，小的做不来……
-{% highlight python %}
+{% highlight html %}
 <h1 id="id1">H1 title</h1>
 一级标题
 <h2 id="id2">H2 title</h2>
@@ -34,14 +34,14 @@ tags:
 又是一级标题……
 {% endhighlight %}
 生成的目录格式如下，应该支持大多`Markdown`编辑器：
-{% highlight python %}
+{% highlight html %}
 *   [H1 title](#id1)
     *    [H2 title](#id2)
 *   [H11 title](#id11)
 {% endhighlight %}
 
 帮助文档如下：
-{% highlight python %}
+{% highlight bash %}
 *damnever->>> python toc_gen.py -h
 usage: toc_gen.py [-h] [-S src] [-D des]
 
