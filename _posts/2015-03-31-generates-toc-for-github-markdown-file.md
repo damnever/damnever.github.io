@@ -22,7 +22,7 @@ tags:
 
 ---
 
-首先必须保证你的标题格式是这样的才能使用这个脚本，我想不出还有其它格式的……
+首先必须保证你的标题格式是这样的才能使用这个脚本，我想不出还有其它格式的可以进行跳转，小的愚昧……
 {% highlight python %}
 <h1 id="id1">H1 title</h1>
 一级标题
@@ -43,7 +43,7 @@ tags:
 *damnever->>> python toc_gen.py -h
 usage: toc_gen.py [-h] [-S src] [-D des]
 
-Generates TOC from markdown text.
+Generates TOC for markdown file.
 
 optional arguments:
       -h, --help  show this help message and exit
@@ -107,7 +107,7 @@ def write(fpath, toc):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-            description = "Generates TOC from markdown text.")
+            description = "Generates TOC for markdown file.")
     parser.add_argument(
             '-S',
             type = file_check,
