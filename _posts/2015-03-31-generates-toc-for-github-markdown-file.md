@@ -2,7 +2,7 @@
 layout:      post
 title:       给 Github 的 Markdown 文件生成目录
 subtitle:    这是个坑，久久未填 ……
-date:        2015-3-31 23:30:31
+date:        2015-3-31 22:10:31
 author:      Damnever
 keywords:    Github,Markdown,TOC,Table of content
 description: 给 Github 的 Markdown 文件生成目录，TOC for Github's markdown file
