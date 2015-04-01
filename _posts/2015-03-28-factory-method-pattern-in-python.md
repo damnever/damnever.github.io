@@ -64,12 +64,16 @@ tags:
 
 ---
 
-又了上网了解一下工厂方法模式，拙谈这几个类的角色：
+这几个类的作用如下：
+> - `util.Configurable`：通过构造函数`__new__()`作为工厂方法来创建实例。
+> - `ioloop.IOLoop`：当你调用`tornado.ioloop.IOLoop.instance().start()`时，会根据你所使用的平台通过`configrable_defult()`来返回`SlectIOLoop`/`EpollIOLoop`/`KQueueIOLoop`中最佳的一个类给`util.Configurable`来创建实例。
+> - `ioloop.PollIOLoop`：为`IOLoop`来创建接口一致的`select-like`方法。
 
-> - `util.Configurable`：通过构造函数`__new__()`作为工厂方法来创建实例。抽象工厂。
-> - `ioloop.IOLoop`：当你调用`tornado.ioloop.IOLoop.instance().start()`时，会根据你所使用的平台通过`configrable_defult()`来返回`SlectIOLoop`/`EpollIOLoop`/`KQueueIOLoop`中最佳的一个类给`util.Configurable`来创建实例。具体工厂。
-> - `ioloop.PollIOLoop`：为`IOLoop`来创建接口一致的`select-like`方法。抽象产品。
-> - `platform.select.SelectIOLoop/platform.epoll.EpollIOLoop/platform.kqueue.KQueueIOLoop`：这几个只有被选择的份，已经不能再具体了。具体产品。
+
+
+又了上网了解一下工厂方法模式，工厂方法模式适用于如下场景：
+> - 用户需要一个类的子类的实例，但是不希望与该类的子类形成耦合。
+> - 用户需要一个类的子类的实例，但用户不知道该类有哪些子类可用。
 
 ---
 
