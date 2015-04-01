@@ -65,15 +65,11 @@ tags:
 ---
 
 这几个类的作用如下：
+
 > - `util.Configurable`：通过构造函数`__new__()`作为工厂方法来创建实例。
-> - `ioloop.IOLoop`：当你调用`tornado.ioloop.IOLoop.instance().start()`时，会根据你所使用的平台通过`configrable_defult()`来返回`SlectIOLoop`/`EpollIOLoop`/`KQueueIOLoop`中最佳的一个类给`util.Configurable`来创建实例。
+> - `ioloop.IOLoop`：当你调用`tornado.ioloop.IOLoop.instance()`时，会根据你所使用的平台通过`configrable_defult()`来返回`SlectIOLoop`/`EpollIOLoop`/`KQueueIOLoop`中最佳的一个类给`util.Configurable`来创建实例。
 > - `ioloop.PollIOLoop`：为`IOLoop`来创建接口一致的`select-like`方法。
-
-
-
-又了上网了解一下工厂方法模式，工厂方法模式适用于如下场景：
-> - 用户需要一个类的子类的实例，但是不希望与该类的子类形成耦合。
-> - 用户需要一个类的子类的实例，但用户不知道该类有哪些子类可用。
+> - `platform.select.SlectIOLoop`/`platform.epoll.EpollIOLoop`/`platform.kqueue.KQueueIOLoop`：与平台相关的特定子类。
 
 ---
 
@@ -160,7 +156,7 @@ IOLoop -> instance()
 
 在`IOLoop.instance()`里调用`IOLoop()`时，会调用`Configurable`的`__new__()`来实例化一个对象，调用`__new__`的时候会调用`IOLoop.configurable_default()`来获取一个最佳的选择（`EPollIOLoop`）,然后实例化这个选择，返回这个实例，所以`IOLoop()`得到了实例是一个`EPollIOLoop`对象。
 
-**可见工厂方法模式的核心就是如何用一个与具体对象无关的类去实例化并得到一个具体的实例对象，而这个实例对象又恰恰是我们想要的。`Tornado`这里就用的很好，可以在不同的平台上获得一个一致的接口，而不需要每个平台都去调用一个不同的接口来完成相似的工作。**
+**可见工厂方法模式的核心就是如何去实例化并得到`一个`具体的实例对象，但是系统并不希望我们的代码与该类的子类形成耦合或者我们根本不知道该类有哪些子类可用或者是我们不知道用哪个子类更佳。`Tornado`这里就用的很好，让`IOLoop`根据平台去决定实例化那个子类，而不要用户操心子类是如何创建的，只需要知道`IOLoop`有哪些方法即可。**
 
 BTW: `Tornado`的源码远比我想象的要复杂，简单的看了一下`httpserver`的结构`岂止于`错综复杂，看来想弄懂`app = Application();  http_server = tornado.httpserver.HTTPServer(app); http_server.listen(options.port); tornado.ioloop.IOLoop.instance().start()`这几句简单的代码都不容易，but sooner and later ......
 
