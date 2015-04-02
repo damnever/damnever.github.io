@@ -13,6 +13,18 @@ layout: default
                     <h4 class="subheading">{{ page.subtitle }}</h4>
                     {% endif %}
 <ul class="tag-box inline"">
+{% assign tags_list = page.categories %}
+{% if tags_list.first[0] == null %}
+{% for tag in tags_list %}
+<li><a href="/categories/#{{ tag }}" class="tag">{{ tag | capitalize }}</a></li>
+{% endfor %}
+{% else %}
+{% for tag in tags_list %}
+<li><a href="/categories/#{{ tag[0] }}" class="tag">{{ tag[0] | capitalize }}</a></li>
+{% endfor %}
+{% endif %}
+{% assign tags_list = nil %}
+<li>&nbsp;<b>-</b>&nbsp;</li>
 {% assign tags_list = page.tags %}
 {% if tags_list.first[0] == null %}
 {% for tag in tags_list %}
@@ -20,7 +32,7 @@ layout: default
 {% endfor %}
 {% else %}
 {% for tag in tags_list %}
-<li><a class="tag" href="#/tags/{{ tag[0] }}">{{ tag[0] | capitalize }}</a></li>
+<li><a class="tag" href="/tags/{{ tag[0] }}">{{ tag[0] | capitalize }}</a></li>
 {% endfor %}
 {% endif %}
 {% assign tags_list = nil %}
