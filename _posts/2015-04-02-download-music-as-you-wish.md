@@ -9,7 +9,6 @@ description: 再也没有人能阻止我下载音乐了,download music as you wi
 categories:
   - Python
 tags:
-  - Python
   - 工具
 
 ---

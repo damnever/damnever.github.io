@@ -10,7 +10,6 @@ categories:
   - 设计模式
   - Python
 tags:
-  - Python
   - 工厂方法模式
   - Tornado
 

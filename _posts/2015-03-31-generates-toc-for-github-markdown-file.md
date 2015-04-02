@@ -9,7 +9,6 @@ description: 给 Github 的 Markdown 文件生成目录，TOC for Github's markd
 categories:
   - Python
 tags:
-  - Python
   - Markdown
 
 ---
