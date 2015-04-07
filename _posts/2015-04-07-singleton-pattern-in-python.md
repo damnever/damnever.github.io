@@ -1,7 +1,7 @@
 ---
 layout:      post
 title:       单例模式在 Python 中的应用
-subtitle:    Tornado IOLoop 中 double check 形式的单例模式解析
+subtitle:    Tornado IOLoop 中 double check 形式的单例模式解析，另：4.7……
 date:        2015-04-07 14:00:11
 author:      Damnever
 keywords:    Damnever,设计模式,单例模式,Python,Tornado, double check
