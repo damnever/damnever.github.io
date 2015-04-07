@@ -57,7 +57,15 @@ class Singleton(object):
             Singleton._instance = Singleton()
         return Singleton._instance
 {% endhighlight %}
+在 Python 里，可以在真正的构造函数`__new__`里做文章：
+{% highlight python %}
+class Singleton(object):
 
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+{% endhighlight %}
 这种情况看似还不错，但是不能保证在多线程的环境下仍然好用，看图：
 ![singleton.png]({{ site.baseurl }}/img/post/2015-04-07.png)
 出现了多线程之后，这明显就是行不通的。
