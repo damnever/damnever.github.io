@@ -122,7 +122,7 @@ _g_singleton = Singleton()
 # def get_instance():
 #     return _g_singleton
 {% endhighlight %}
-但是如果这个类所占的资源较多的话，还没有用这个实例就已经存在了，是非常不划算的。
+但是如果这个类所占的资源较多的话，还没有用这个实例就已经存在了，是非常不划算的，Python 代码也略显丑陋……
 
 ---
 
