@@ -5,7 +5,7 @@ subtitle:    没办法，学的东西不成体系，只能搞些歪门邪道的�
 date:        2015-04-18 19:00:11
 author:      Damnever
 keywords:    解题，奇葩
-description: 一朵不可多得的奇葩，I am a wonderful miracle
+description: 一朵不可多得的奇葩，a wonderful miracle
 categories:
   - Python
 tags:
@@ -33,7 +33,7 @@ from functools import partial
 def get_groups(matrix, target):
     width = len(matrix[0])
     height = len(matrix)
-    overs = []
+    overs = set()
     count = 0
     get_neighbor = partial(find_neighbor, width=width, height=height, matrix=matrix)
     for j in range(height):
@@ -42,9 +42,9 @@ def get_groups(matrix, target):
                 continue
             tree = Tree(Coord(i, j))
             get_neighbor(tree)
-            seq = []
+            seq = set()
             tree2list(tree, seq)
-            overs.extend(seq)
+            overs |= seq
             count += 1
     return count
 
@@ -62,7 +62,7 @@ def find_neighbor(tree, width, height, matrix):
 def tree2list(tree, seq):
     if tree and tree.root:
         tree2list(tree.down, seq)
-        seq.append(tree.root())
+        seq.add(tree.root())
         tree2list(tree.right, seq)
 
 
