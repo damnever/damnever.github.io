@@ -276,11 +276,13 @@ Python 接受使用换页符（i.e. `Ctrl+L`）作为空格；许多工具都把
 import os
 import sys
 {% endhighlight %}
-  不好的:
+
+&emsp;&emsp;不好的:
 {% highlight python %}
 import sys, os
 {% endhighlight %}
-  这样也是可行的：
+
+&emsp;&emsp;这样也是可行的：
 {% highlight python %}
 from subprocess import Popen, PIPE
 {% endhighlight %}
@@ -304,14 +306,15 @@ import mypkg.sibling
 from mypkg import sibling
 from mypkg.sibling import example
 {% endhighlight %}
-  当然，相对于绝对导入，相对导入是个可选替代，特别是处理复杂的包结构时，绝对导入会有不必要的冗余：
+&emsp;&emsp;当然，相对于绝对导入，相对导入是个可选替代，特别是处理复杂的包结构时，绝对导入会有不必要的冗余：
 {% highlight python %}
 from . import sibling
 from .sibling import example
 {% endhighlight %}
-  标准库代码应该避免复杂的包结构，并且永远使用绝对导入。
 
-  应该从不使用隐式的相对导入，而且在 Python 3 中已经被移除。
+&emsp;&emsp;标准库代码应该避免复杂的包结构，并且永远使用绝对导入。
+
+&emsp;&emsp;应该从不使用隐式的相对导入，而且在 Python 3 中已经被移除。
 
 + 从一个包含类的模块导入类时，这样写通常是可行的：
 
@@ -319,12 +322,14 @@ from .sibling import example
 from myclass import MyClass
 from foo.bar.yourclass import YourClass
 {% endhighlight %}
-  如果上面的方式会本地导致命名冲突，则这样写：
+
+&emsp;&emsp;如果上面的方式会本地导致命名冲突，则这样写：
 {% highlight python %}
 import myclass
 import foo.bar.yourclass
 {% endhighlight %}
-  以`myclass.MyClass`和`foo.bar.yourclass.YourClass`这样的方式使用。
+
+&emsp;&emsp;以`myclass.MyClass`和`foo.bar.yourclass.YourClass`这样的方式使用。
 
 + 应该避免通配符导入（`from <module> import *`），这会使名称空间里存在的名称变得不清晰，迷惑读者和自动化工具。这里有一个可辩护的通配符导入用例，，重新发布一个内部接口作为公共 API 的一部分（例如，使用纯 Python 实现一个可选的加速器模块的接口，但并不能预知这些定义会被覆盖）。
 
@@ -367,7 +372,8 @@ ham[lower+offset : upper+offset]
 ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
 ham[lower + offset : upper + offset]
 {% endhighlight %}
-   不好的：
+
+&emsp;&emsp;不好的：
 {% highlight python %}
 ham[lower + offset:upper + offset]
 ham[1: 9], ham[1 :9], ham[1:9 :3]
@@ -397,7 +403,8 @@ x = 1
 y = 2
 long_variable = 3
 {% endhighlight %}
-  不好的：
+
+&emsp;&emsp;不好的：
 {% highlight python %}
 x             = 1
 y             = 2
@@ -418,7 +425,8 @@ x = x*2 - 1
 hypot2 = x*x + y*y
 c = (a+b) * (a-b)
 {% endhighlight %}
-  不好的：
+
+&emsp;&emsp;不好的：
 {% highlight python %}
 i=i+1
 submitted +=1
@@ -434,7 +442,8 @@ c = (a + b) * (a - b)
 def complex(real, imag=0.0):
     return magic(r=real, i=imag)
 {% endhighlight %}
-  不好的：
+
+&emsp;&emsp;不好的：
 {% highlight python %}
 def complex(real, imag = 0.0):
     return magic(r = real, i = imag)
@@ -449,7 +458,8 @@ def munge(sep: AnyStr = None):
 def munge() -> AnyStr:
 def munge(input: AnyStr, sep: AnyStr = None, limit=1000):
   {% endhighlight %}
-  不好的：
+
+&emsp;&emsp;不好的：
 {% highlight python %}
 def munge(input: AnyStr=None):
 def munge(input:AnyStr):
@@ -466,7 +476,8 @@ do_one()
 do_two()
 do_three()
 {% endhighlight %}
-  宁可不：
+
+&emsp;&emsp;宁可不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
 do_one(); do_two(); do_three()
@@ -480,7 +491,8 @@ if foo == 'blah': do_blah_thing()
 for x in lst: total += x
 while t < 10: t = delay()
 {% endhighlight %}
-  绝对不：
+
+&emsp;&emsp;绝对不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
 else: do_non_blah_thing()
@@ -522,10 +534,10 @@ if foo == 'blah': one(); two(); three()
 一个行内注释与语句在同一行。行内注释应该至少与语句相隔两个空格。以`#`打头，`#`后接一个空格。
 
 无谓的行内注释如果状态明显，会转移注意力。不要这样做：
-
 {% highlight python %}
 x = x + 1                 # Increment x
 {% endhighlight %}
+
 但有的时候，这样是有用的：
 {% highlight python %}
 x = x + 1                 # Compensate for border
@@ -585,7 +597,7 @@ API 里对用户可见的公共部分应该遵循约定，反映的是使用而�
  + UPPER_CASE_WITH_UNDERSCORES
  + CapitalizedWords (又叫 CapWords，或者 CamelCase(骆驼命名法) -- 如此命名因为字母看起来崎岖不平<span id="id44">[[3]](#id4)</span>)。有时候也叫 StudlyCaps。
 
-  注意：在 CapWords 使用缩略语时，所有缩略语的首字母都要大写。因此`HTTPServerError`比`HttpServerError`要好。
+&emsp;&emsp;注意：在 CapWords 使用缩略语时，所有缩略语的首字母都要大写。因此`HTTPServerError`比`HttpServerError`要好。
 
  + mixedCase (和上面不同的是首字母小写)
  + Capitalized_Words_With_Underscores (丑陋无比！)
@@ -597,13 +609,13 @@ X11 库的所有公共函数都用 X 打头。在 Python 中这种风格被认�
 
 此外，下面的特许形式用一个前导或尾随的下划线进行识别（这些通常可以和任何形式的命名约定组合）：
 
- + _single_leading_underscore ：仅内部使用的标识，如`from M import *`不会导入像这样一下划线开头的对象。
++ _single_leading_underscore ：仅内部使用的标识，如`from M import *`不会导入像这样一下划线开头的对象。
 
- + single_trailing_underscore_ : 通常是为了避免与 Python 规定的关键字冲突，如`Tkinter.Toplevel(master, class_='ClassName')`。
++ single_trailing_underscore_ : 通常是为了避免与 Python 规定的关键字冲突，如`Tkinter.Toplevel(master, class_='ClassName')`。
 
- + __double_leading_underscore : 命名一个类属性，调用的时候名字会改变（在类`FooBar`中，`__boo`变成了`_FooBar__boo`；见下）。
++ __double_leading_underscore : 命名一个类属性，调用的时候名字会改变（在类`FooBar`中，`__boo`变成了`_FooBar__boo`；见下）。
 
- + __double_leading_and_trailing_underscore__ ："魔术"对象或属性，活在用户控制的命名空间里。例如，`__init__`，`__import__`和`__file__`。永远不要像这种方式命名；只把它们作为记录。
++ __double_leading_and_trailing_underscore__ ："魔术"对象或属性，活在用户控制的命名空间里。例如，`__init__`，`__import__`和`__file__`。永远不要像这种方式命名；只把它们作为记录。
 
 <h4 id="prescriptive">规定：命名约定</h4>
 
@@ -691,21 +703,21 @@ Python 命名改编通过添加一个类名：如果类`Foo`有一个属性叫`_
  + 共有属性不应该有前导下划线。
  + 如果你的公有属性与保留关键字发生冲突，在你的属性名后面添加一个尾随的下划线。这比使用缩写或胡乱拆减要好。（尽管这条规则，已知某个变量或参数可能是一个类情况下，`cls`是首选的命名，特别是作为类方法的第一个参数）
 
-   注意一：见上面推荐的类方法参数命名方式。
+&emsp;&emsp;注意一：见上面推荐的类方法参数命名方式。
 
  + 对于简单的公有数据属性，最好的方式是暴露属性名，不要使用复杂的访问属性/修改属性的方法。记住，Python 提供了捷径去提升特性，如果你发现简单的数据属性需要增加功能行为。在这种情况下，使用`properties`把功能实现隐藏在简单的数据属性访问语法下面。
 
-   注意一：`properties`仅仅在新式类下工作。
-   主意二：尽量保持功能行为无边际效应，然而如缓存有边际效应也是好的。
-   注意三：避免为计算开销大的操作使用`properties`；属性标记使调用者相信这样来访问（相对来说）是开销很低的。
+&emsp;&emsp;注意一：`properties`仅仅在新式类下工作。
+&emsp;&emsp;注意二：尽量保持功能行为无边际效应，然而如缓存有边际效应也是好的。
+&emsp;&emsp;注意三：避免为计算开销大的操作使用`properties`；属性标记使调用者相信这样来访问（相对来说）是开销很低的。
 
  + 如果你的类是为了被继承，你有不想让子类使用的属性，给属性命名时考虑给它们加上双前导下划线，不要加尾随下划线。这会调用 Python 的名称重整算法，把类名加在属性名前面。避免了命名冲突，当子类不小心命名了和父类属性相同名称的时候。
 
-   注意一：注意只是用了简单的类名来重整名字，因此如果子类和父类同名的时候，你仍然有能力避免冲突。
+&emsp;&emsp;注意一：注意只是用了简单的类名来重整名字，因此如果子类和父类同名的时候，你仍然有能力避免冲突。
 
-   注意二：命名重整有确定的用途，例如调试和`__getattr__()`，就不太方便。命名重整算法是有据可查的，易于手动执行。
+&emsp;&emsp;注意二：命名重整有确定的用途，例如调试和`__getattr__()`，就不太方便。命名重整算法是有据可查的，易于手动执行。
 
-   注意三：不是每个人都喜欢命名重整。尽量平衡名称的命名冲突与面向高级调用者的潜在用途。
+&emsp;&emsp;注意三：不是每个人都喜欢命名重整。尽量平衡名称的命名冲突与面向高级调用者的潜在用途。
 
 <h3 id="public-and-internal-interfaces">公共和内部接口</h3>
 
@@ -740,7 +752,7 @@ Python 命名改编通过添加一个类名：如果类`Foo`有一个属性叫`_
 if foo is not None:
 {% endhighlight %}
 
-  不好的:
+&emsp;&emsp;不好的:
 {% highlight python %}
 if not foo is None:
 {% endhighlight %}
@@ -758,12 +770,12 @@ if not foo is None:
 def f(x): return 2*x
 {% endhighlight %}
 
-  不好的:
+&emsp;&emsp;不好的:
 {% highlight python %}
 f = lambda x: 2*x
 {% endhighlight %}
 
-  第一种形式意味着函数对象的名字是'f'而不是'<lambda>'的。通常这对异常追踪和字符串表述是更有用的。使用赋值语句消除的唯一好处，`lambda`表达式可以提供一个显示的`def`语句不能提供的，如，`lambda`能镶嵌在一个很长的表达式里。
+&emsp;&emsp;第一种形式意味着函数对象的名字是'f'而不是'<lambda>'的。通常这对异常追踪和字符串表述是更有用的。使用赋值语句消除的唯一好处，`lambda`表达式可以提供一个显示的`def`语句不能提供的，如，`lambda`能镶嵌在一个很长的表达式里。
 
 + 异常类应派生自`Exception`而不是`BaseException`。直接继承自`BaseException`是为`Exception`保留的，如果从`BaseException`继承，捕获到的错误总是错的。
 
@@ -791,12 +803,13 @@ except ImportError:
     platform_specific_module = None
 {% endhighlight %}
 
-  一个空的`except:`语句将会捕获到`SystemExit`和`KeyboardInterrupt`异常，很难区分程序的中断到底是`Ctrl+C`还是其他问题引起的。如果你想捕获程序的所有错误，使用`except Exception:`(空`except:`等同于`except BaseException`)。
+&emsp;&emsp;一个空的`except:`语句将会捕获到`SystemExit`和`KeyboardInterrupt`异常，很难区分程序的中断到底是`Ctrl+C`还是其他问题引起的。如果你想捕获程序的所有错误，使用`except Exception:`(空`except:`等同于`except BaseException`)。
 
-  一个好的经验是限制使用空`except`语句，除了这两种情况：
+&emsp;&emsp;一个好的经验是限制使用空`except`语句，除了这两种情况：
 
    1. 如果异常处理程序会打印出或者记录回溯信息；至少用户意识到错误的存在。
    2. 如果代码需要做一些清理工作，但后面用`raise`向上抛出异常。`try .. finally`是处理这种情况更好的方式。
+
 
 + 绑定异常给一个名字时，最好使用 Python 2.6 里添加的明确的名字绑定语法：
 
@@ -823,7 +836,7 @@ else:
     return handle_value(value)
 {% endhighlight %}
 
-  不好的：
+&emsp;&emsp;不好的：
 {% highlight python %}
 try:
     # Too broad!
@@ -843,13 +856,13 @@ with conn.begin_transaction():
     do_stuff_in_transaction(conn)
 {% endhighlight %}
 
-  不好的：
+&emsp;&emsp;不好的：
 {% highlight python %}
 with conn:
     do_stuff_in_transaction(conn)
 {% endhighlight %}
 
-  第二个例子没有提供任何信息来表明`__enter__`和`__exit__`方法在完成一个事务后做了一些除了关闭连接以外的其它事。在这种情况下明确是很重要的。
+&emsp;&emsp;第二个例子没有提供任何信息来表明`__enter__`和`__exit__`方法在完成一个事务后做了一些除了关闭连接以外的其它事。在这种情况下明确是很重要的。
 
 + 坚持使用`return`语句。函数内的`return`语句都应该返回一个表达式，或者`None`。如果一个`return`语句返回一个表达式，另一个没有返回值的应该用`return None`清晰的说明，并且在一个函数的结尾应该明确使用一个`return`语句（如果有返回值的话）。
 
@@ -867,7 +880,7 @@ def bar(x):
     return math.sqrt(x)
 {% endhighlight %}
 
-  不好的：
+&emsp;&emsp;不好的：
 {% highlight python %}
 def foo(x):
     if x >= 0:
@@ -899,13 +912,13 @@ Yes: if isinstance(obj, int):
 No:  if type(obj) is type(1):
 {% endhighlight %}
 
-  当比较一个对象是不是字符串时，记住它有可能也是一个 unicode 字符串！在 Python 2 里面，`str`和`unicode`有一个公共的基类叫`basestring`，因此你可以这样做：
+&emsp;&emsp;当比较一个对象是不是字符串时，记住它有可能也是一个 unicode 字符串！在 Python 2 里面，`str`和`unicode`有一个公共的基类叫`basestring`，因此你可以这样做：
 
 {% highlight python %}
 if isinstance(obj, basestring):
 {% endhighlight %}
 
-  注意，在 Python 3 里面，`unicode`和`basestring`已经不存在了（只有`str`），`byte`对象不再是字符串的一种（被一个整数序列替代）。
+&emsp;&emsp;注意，在 Python 3 里面，`unicode`和`basestring`已经不存在了（只有`str`），`byte`对象不再是字符串的一种（被一个整数序列替代）。
 
 + 对于序列（字符串、列表、元组）来说，空的序列为`False`：
 
@@ -915,7 +928,7 @@ if not seq:
 if seq:
 {% endhighlight %}
 
-  不好的：
+&emsp;&emsp;不好的：
 {% highlight python %}
 if len(seq):
 if not len(seq):
