@@ -276,12 +276,10 @@ Python 接受使用换页符（i.e. `Ctrl+L`）作为空格；许多工具都把
 import os
 import sys
 {% endhighlight %}
-
   不好的:
 {% highlight python %}
 import sys, os
 {% endhighlight %}
-
   这样也是可行的：
 {% highlight python %}
 from subprocess import Popen, PIPE
@@ -306,13 +304,11 @@ import mypkg.sibling
 from mypkg import sibling
 from mypkg.sibling import example
 {% endhighlight %}
-
   当然，相对于绝对导入，相对导入是个可选替代，特别是处理复杂的包结构时，绝对导入会有不必要的冗余：
 {% highlight python %}
 from . import sibling
 from .sibling import example
 {% endhighlight %}
-
   标准库代码应该避免复杂的包结构，并且永远使用绝对导入。
 
   应该从不使用隐式的相对导入，而且在 Python 3 中已经被移除。
@@ -323,13 +319,11 @@ from .sibling import example
 from myclass import MyClass
 from foo.bar.yourclass import YourClass
 {% endhighlight %}
-
   如果上面的方式会本地导致命名冲突，则这样写：
 {% highlight python %}
 import myclass
 import foo.bar.yourclass
 {% endhighlight %}
-
   以`myclass.MyClass`和`foo.bar.yourclass.YourClass`这样的方式使用。
 
 + 应该避免通配符导入（`from <module> import *`），这会使名称空间里存在的名称变得不清晰，迷惑读者和自动化工具。这里有一个可辩护的通配符导入用例，，重新发布一个内部接口作为公共 API 的一部分（例如，使用纯 Python 实现一个可选的加速器模块的接口，但并不能预知这些定义会被覆盖）。
@@ -351,19 +345,19 @@ import foo.bar.yourclass
 
 避免在下列情况中使用多余的空格：
 
- + 与括号保持紧凑（小括号、中括号、大括号）：
- {% highlight python %}
++ 与括号保持紧凑（小括号、中括号、大括号）：
+{% highlight python %}
 Yes: spam(ham[1], {eggs: 2})
 No:  spam( ham[ 1 ], { eggs: 2 } )
 {% endhighlight %}
 
- + 与后面的逗号、分号或冒号保持紧凑：
++ 与后面的逗号、分号或冒号保持紧凑：
 {% highlight python %}
 Yes: if x == 4: print x, y; x, y = y, x
 No:  if x == 4 : print x , y ; x , y = y , x
 {% endhighlight %} 
 
- + 切片内的冒号就像二元操作符一样，任意一侧应该被等同对待（把它当做一个极低优先级的操作）。在一个可扩展的切片中，冒号两侧必须有相同的空格数量。例外：切片参数省略时，空格也省略。
++ 切片内的冒号就像二元操作符一样，任意一侧应该被等同对待（把它当做一个极低优先级的操作）。在一个可扩展的切片中，冒号两侧必须有相同的空格数量。例外：切片参数省略时，空格也省略。
 
    好的：
 {% highlight python %}
@@ -373,7 +367,6 @@ ham[lower+offset : upper+offset]
 ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
 ham[lower + offset : upper + offset]
 {% endhighlight %}
-
    不好的：
 {% highlight python %}
 ham[lower + offset:upper + offset]
@@ -382,30 +375,29 @@ ham[lower : : upper]
 ham[ : upper]
 {% endhighlight %}
 
- + 函数名与其后参数列表的左括号应该保持紧凑：
++ 函数名与其后参数列表的左括号应该保持紧凑：
  
 {% highlight python %}
 Yes: spam(1)
 No:  spam (1)
 {% endhighlight %} 
 
- + 与切片或索引的左括号保持紧凑：
++ 与切片或索引的左括号保持紧凑：
  
 {% highlight python %}
 Yes: dct['key'] = lst[index]
 No:  dct ['key'] = lst [index]
 {% endhighlight %}
 
- + 在复制操作符（或其它）的两侧保持多余一个的空格：
++ 在复制操作符（或其它）的两侧保持多余一个的空格：
 
-   好的：
+  好的：
 {% highlight python %}
 x = 1
 y = 2
 long_variable = 3
 {% endhighlight %}
-
-   不好的：
+  不好的：
 {% highlight python %}
 x             = 1
 y             = 2
@@ -426,7 +418,6 @@ x = x*2 - 1
 hypot2 = x*x + y*y
 c = (a+b) * (a-b)
 {% endhighlight %}
-
   不好的：
 {% highlight python %}
 i=i+1
@@ -443,7 +434,6 @@ c = (a + b) * (a - b)
 def complex(real, imag=0.0):
     return magic(r=real, i=imag)
 {% endhighlight %}
-
   不好的：
 {% highlight python %}
 def complex(real, imag = 0.0):
@@ -453,13 +443,12 @@ def complex(real, imag = 0.0):
 + 【注：Python 3】带注释的函数定义中的等号两侧要各插入空格。此外，在冒号后用一个单独的空格，也要在表明函数返回值类型的`->`左右各插入一个空格。
 
   好的：
-{% highlight python %}
+  {% highlight python %}
 def munge(input: AnyStr):
 def munge(sep: AnyStr = None):
 def munge() -> AnyStr:
 def munge(input: AnyStr, sep: AnyStr = None, limit=1000):
-{% endhighlight %}
-
+  {% endhighlight %}
   不好的：
 {% highlight python %}
 def munge(input: AnyStr=None):
@@ -477,7 +466,6 @@ do_one()
 do_two()
 do_three()
 {% endhighlight %}
-
   宁可不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
@@ -492,7 +480,6 @@ if foo == 'blah': do_blah_thing()
 for x in lst: total += x
 while t < 10: t = delay()
 {% endhighlight %}
-
   绝对不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
