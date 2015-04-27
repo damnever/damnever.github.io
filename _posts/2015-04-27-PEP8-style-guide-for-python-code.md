@@ -18,9 +18,9 @@ tags:
 
 原文链接：[Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 
-作者：Guido van Rossum <guido at python.org>, Barry Warsaw <barry at python.org>, Nick Coghlan <ncoghlan at gmail.com>
+原文作者：Guido van Rossum <guido at python.org>, Barry Warsaw <barry at python.org>, Nick Coghlan <ncoghlan at gmail.com>
 
-最后修改版：01-Aug-2013
+最后发布：01-Aug-2013
 
 ---
 
@@ -212,7 +212,7 @@ Python 3 不允许混合使用制表符和空格来缩进代码。
 
 Python 标准库是非常专业的，限制最大代码长度为79个字符（注释和文档字符串最大长度为72个字符）。
 
-首选的换行方式是在括号（小中大）内隐私换行（非续行符`\`）。长行应该在括号表达式的包裹下换行。这比反斜杠作为续行符更好。
+首选的换行方式是在括号（小中大）内隐式换行（非续行符`\`）。长行应该在括号表达式的包裹下换行。这比反斜杠作为续行符更好。
 
 反斜杠有时仍然适用。例如，多个很长的`with`语句不能使用隐式续行，因此反斜杠是可接受的。
 {% highlight python %}
@@ -271,33 +271,33 @@ Python 接受使用换页符（i.e. `Ctrl+L`）作为空格；许多工具都把
 
 + `import`不同的模块应该独立一行，如：
 
-好的:
+  好的:
 {% highlight python %}
 import os
 import sys
 {% endhighlight %}
 
-不好的:
+  不好的:
 {% highlight python %}
 import sys, os
 {% endhighlight %}
 
- 这样也是可行的：
+  这样也是可行的：
 {% highlight python %}
 from subprocess import Popen, PIPE
 {% endhighlight %}
 
 + `import`语句应该总是放在文件的顶部，在模块注释和文档字符串之下，在模块全局变量和常量之前。
 
- `import`语句分组顺序如下：
+  `import`语句分组顺序如下：
 
- 1. 导入标准库模块
- 2. 导入相关第三方库模块
- 3. 导入当前应用程序/库模块
+    1. 导入标准库模块
+    2. 导入相关第三方库模块
+    3. 导入当前应用程序/库模块
 
- 每组之间应该用空行分开。
+  每组之间应该用空行分开。
  
- 然后用`__all__`声明本文件内的模块。
+  然后用`__all__`声明本文件内的模块。
 
 + 绝对导入是推荐的，它们通常是更可读的，并且在错误的包系统配置（如一个目录包含一个以`os.path`结尾的包）下有良好的行为倾向（至少有更清晰的错误消息）：
  
@@ -307,15 +307,15 @@ from mypkg import sibling
 from mypkg.sibling import example
 {% endhighlight %}
 
- 当然，相对于绝对导入，相对导入是个可选替代，特别是处理复杂的包结构时，绝对导入会有不必要的冗余：
+  当然，相对于绝对导入，相对导入是个可选替代，特别是处理复杂的包结构时，绝对导入会有不必要的冗余：
 {% highlight python %}
 from . import sibling
 from .sibling import example
 {% endhighlight %}
 
- 标准库代码应该避免复杂的包结构，并且永远使用绝对导入。
+  标准库代码应该避免复杂的包结构，并且永远使用绝对导入。
 
- 应该从不使用隐式的相对导入，而且在 Python 3 中已经被移除。
+  应该从不使用隐式的相对导入，而且在 Python 3 中已经被移除。
 
 + 从一个包含类的模块导入类时，这样写通常是可行的：
 
@@ -324,17 +324,17 @@ from myclass import MyClass
 from foo.bar.yourclass import YourClass
 {% endhighlight %}
 
- 如果上面的方式会本地导致命名冲突，则这样写：
+  如果上面的方式会本地导致命名冲突，则这样写：
 {% highlight python %}
 import myclass
 import foo.bar.yourclass
 {% endhighlight %}
 
- 以`myclass.MyClass`和`foo.bar.yourclass.YourClass`这样的方式使用。
+  以`myclass.MyClass`和`foo.bar.yourclass.YourClass`这样的方式使用。
 
 + 应该避免通配符导入（`from <module> import *`），这会使名称空间里存在的名称变得不清晰，迷惑读者和自动化工具。这里有一个可辩护的通配符导入用例，，重新发布一个内部接口作为公共 API 的一部分（例如，使用纯 Python 实现一个可选的加速器模块的接口，但并不能预知这些定义会被覆盖）。
 
- 当以这种方式重新发布名称时，下面关于公共和内部接口的指南仍然适用。
+  当以这种方式重新发布名称时，下面关于公共和内部接口的指南仍然适用。
 
 ---
 <h3 id="string-quotes">字符串引号</h3>
@@ -365,7 +365,7 @@ No:  if x == 4 : print x , y ; x , y = y , x
 
  + 切片内的冒号就像二元操作符一样，任意一侧应该被等同对待（把它当做一个极低优先级的操作）。在一个可扩展的切片中，冒号两侧必须有相同的空格数量。例外：切片参数省略时，空格也省略。
 
- 好的：
+   好的：
 {% highlight python %}
 ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
 ham[lower:upper], ham[lower:upper:], ham[lower::step]
@@ -374,7 +374,7 @@ ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
 ham[lower + offset : upper + offset]
 {% endhighlight %}
 
- 不好的：
+   不好的：
 {% highlight python %}
 ham[lower + offset:upper + offset]
 ham[1: 9], ham[1 :9], ham[1:9 :3]
@@ -398,14 +398,14 @@ No:  dct ['key'] = lst [index]
 
  + 在复制操作符（或其它）的两侧保持多余一个的空格：
 
-  好的：
+   好的：
 {% highlight python %}
 x = 1
 y = 2
 long_variable = 3
 {% endhighlight %}
 
-  不好的：
+   不好的：
 {% highlight python %}
 x             = 1
 y             = 2
@@ -418,7 +418,7 @@ long_variable = 3
 
 + 在不同优先级之间，考虑在更低优先级的操作符两侧插入空格。用你自己的判断力；但不要使用超过一个空格，并且在二元操作符的两侧有相同的空格数。
  
- 好的：
+  好的：
 {% highlight python %}
 i = i + 1
 submitted += 1
@@ -427,7 +427,7 @@ hypot2 = x*x + y*y
 c = (a+b) * (a-b)
 {% endhighlight %}
 
- 不好的：
+  不好的：
 {% highlight python %}
 i=i+1
 submitted +=1
@@ -438,13 +438,13 @@ c = (a + b) * (a - b)
 
 + 不要在关键值参数或默认值参数的等号两边加入空格。
  
- 好的：
+  好的：
 {% highlight python %}
 def complex(real, imag=0.0):
     return magic(r=real, i=imag)
 {% endhighlight %}
 
- 不好的：
+  不好的：
 {% highlight python %}
 def complex(real, imag = 0.0):
     return magic(r = real, i = imag)
@@ -452,7 +452,7 @@ def complex(real, imag = 0.0):
 
 + 【注：Python 3】带注释的函数定义中的等号两侧要各插入空格。此外，在冒号后用一个单独的空格，也要在表明函数返回值类型的`->`左右各插入一个空格。
 
- 好的：
+  好的：
 {% highlight python %}
 def munge(input: AnyStr):
 def munge(sep: AnyStr = None):
@@ -460,7 +460,7 @@ def munge() -> AnyStr:
 def munge(input: AnyStr, sep: AnyStr = None, limit=1000):
 {% endhighlight %}
 
- 不好的：
+  不好的：
 {% highlight python %}
 def munge(input: AnyStr=None):
 def munge(input:AnyStr):
@@ -469,7 +469,7 @@ def munge(input: AnyStr)->PosInt:
 
 + 打消使用复合语句（多条语句在同一行）的念头。
 
- 好的：
+  好的：
 {% highlight python %}
 if foo == 'blah':
     do_blah_thing()
@@ -478,7 +478,7 @@ do_two()
 do_three()
 {% endhighlight %}
 
- 宁可不：
+  宁可不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
 do_one(); do_two(); do_three()
@@ -486,14 +486,14 @@ do_one(); do_two(); do_three()
 
 + 有时候把 `if/for/while` 和一个小的主体放在同一行也是可行的，千万不要在有多条语句的情况下这样做。此外，还要避免折叠，例如长行。
 
- 宁可不：
+  宁可不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
 for x in lst: total += x
 while t < 10: t = delay()
 {% endhighlight %}
 
- 绝对不：
+  绝对不：
 {% highlight python %}
 if foo == 'blah': do_blah_thing()
 else: do_non_blah_thing()
@@ -548,9 +548,9 @@ x = x + 1                 # Compensate for border
 
 编写良好的文档字符串（a.k.a "docstring"）的约定常驻在 [PEP 257](https://www.python.org/dev/peps/pep-0257)
 
- + 为所有的公共模块、函数、类和方法编写文档字符串。对于非公共的方法，文档字符串是不必要的，但是也应该有注释来说明代码是干什么的。这个注释应该放在方法声明的下面。
++ 为所有的公共模块、函数、类和方法编写文档字符串。对于非公共的方法，文档字符串是不必要的，但是也应该有注释来说明代码是干什么的。这个注释应该放在方法声明的下面。
 
- + [PEP 257](https://www.python.org/dev/peps/pep-0257) 描述了良好的文档字符串的约定。注意，文档字符串的结尾`"""`应该放在单独的一行，例如：
++ [PEP 257](https://www.python.org/dev/peps/pep-0257) 描述了良好的文档字符串的约定。注意，文档字符串的结尾`"""`应该放在单独的一行，例如：
 
 {% highlight python %}
 """Return a foobang
@@ -559,7 +559,7 @@ Optional plotz says to frobnicate the bizbaz first.
 """
 {% endhighlight %}
 
- + 对于单行的文档字符串，把结尾`"""`放在同一行。
++ 对于单行的文档字符串，把结尾`"""`放在同一行。
 
 ---
 <h3 id="version-bookkeeping">版本注记</h3>
@@ -704,19 +704,21 @@ Python 命名改编通过添加一个类名：如果类`Foo`有一个属性叫`_
  + 共有属性不应该有前导下划线。
  + 如果你的公有属性与保留关键字发生冲突，在你的属性名后面添加一个尾随的下划线。这比使用缩写或胡乱拆减要好。（尽管这条规则，已知某个变量或参数可能是一个类情况下，`cls`是首选的命名，特别是作为类方法的第一个参数）
 
-  注意一：见上面推荐的类方法参数命名方式。
+   注意一：见上面推荐的类方法参数命名方式。
 
  + 对于简单的公有数据属性，最好的方式是暴露属性名，不要使用复杂的访问属性/修改属性的方法。记住，Python 提供了捷径去提升特性，如果你发现简单的数据属性需要增加功能行为。在这种情况下，使用`properties`把功能实现隐藏在简单的数据属性访问语法下面。
 
-  注意一：`properties`仅仅在新式类下工作。
-  主意二：尽量保持功能行为无边际效应，然而如缓存有边际效应也是好的。
-  注意三：避免为计算开销大的操作使用`properties`；属性标记使调用者相信这样来访问（相对来说）是开销很低的。
+   注意一：`properties`仅仅在新式类下工作。
+   主意二：尽量保持功能行为无边际效应，然而如缓存有边际效应也是好的。
+   注意三：避免为计算开销大的操作使用`properties`；属性标记使调用者相信这样来访问（相对来说）是开销很低的。
 
  + 如果你的类是为了被继承，你有不想让子类使用的属性，给属性命名时考虑给它们加上双前导下划线，不要加尾随下划线。这会调用 Python 的名称重整算法，把类名加在属性名前面。避免了命名冲突，当子类不小心命名了和父类属性相同名称的时候。
 
-  注意一：注意只是用了简单的类名来重整名字，因此如果子类和父类同名的时候，你仍然有能力避免冲突。
-  注意二：命名重整有确定的用途，例如调试和`__getattr__()`，就不太方便。命名重整算法是有据可查的，易于手动执行。
-  注意三：不是每个人都喜欢命名重整。尽量平衡名称的命名冲突与面向高级调用者的潜在用途。
+   注意一：注意只是用了简单的类名来重整名字，因此如果子类和父类同名的时候，你仍然有能力避免冲突。
+
+   注意二：命名重整有确定的用途，例如调试和`__getattr__()`，就不太方便。命名重整算法是有据可查的，易于手动执行。
+
+   注意三：不是每个人都喜欢命名重整。尽量平衡名称的命名冲突与面向高级调用者的潜在用途。
 
 <h3 id="public-and-internal-interfaces">公共和内部接口</h3>
 
@@ -736,15 +738,15 @@ Python 命名改编通过添加一个类名：如果类`Foo`有一个属性叫`_
 
 <h3 id="programming-recommendations">程序编写建议</h3>
 
- + 代码的编写方式不能对其它 Python 的实现（PyPy、Jython、IronPython、Cython、Psyco，诸如此类的）不利。
++ 代码的编写方式不能对其它 Python 的实现（PyPy、Jython、IronPython、Cython、Psyco，诸如此类的）不利。
 
   例如，不要依赖于 CPython 在字符串拼接时的优化实现，像这种语句形式`a += b`和`a = a + b`。即使是 CPython（仅对某些类型起作用） 这种优化也是脆弱的，不是在所有的实现中都不使用引用计数。在库中性能敏感的部分，用`''.join`形式来代替。这会确保在所有不同的实现中字符串拼接是线性时间的。
 
- + 比较单例，像`None`应该用`is`或`is not`，从不使用`==`操作符。
++ 比较单例，像`None`应该用`is`或`is not`，从不使用`==`操作符。
 
   当你的真正用意是`if x is not None`的时候，当心`if x`这样的写法 -- 例如，测试一个默认值为`None`的变量或参数是否设置成了其它值，其它值可能是那些布尔值为 false 的类型（如空容器）。
 
- + 用`is not`操作符而不是`not ... is`。虽然这两个表达式是功能相同的，前一个是更可读的，是首选。
++ 用`is not`操作符而不是`not ... is`。虽然这两个表达式是功能相同的，前一个是更可读的，是首选。
 
   好的:
 {% highlight python %}
@@ -756,13 +758,13 @@ if foo is not None:
 if not foo is None:
 {% endhighlight %}
 
- + 用富比较实现排序操作的时候，实现所有六个比较操作符（ `__eq__` 、 `__ne__` 、 `__lt__` , `__le__` , `__gt__` , `__ge__`）是更好的，而不是依赖其它仅仅运用一个特定比较的代码
++ 用富比较实现排序操作的时候，实现所有六个比较操作符（ `__eq__` 、 `__ne__` 、 `__lt__` , `__le__` , `__gt__` , `__ge__`）是更好的，而不是依赖其它仅仅运用一个特定比较的代码
 
   为了最大限度的减少工作量，`functools.total_ordering()`装饰器提供了一个工具去生成缺少的比较方法。
 
   [PEP 207](https://www.python.org/dev/peps/pep-0207) 说明了 Python 假定的所有反射规则。因此，解释器可能交换`y > x`与`x < y`，`y >= x`与`x <= y`，也可能交换`x == y`和`x != y`。`sort()`和`min()`操作肯定会使用`<`操作符，`max()`函数肯定会使用`>`操作符。当然，最好是六个操作符都实现，以便不会在其它上下文中有疑惑。
 
- + 始终使用`def`语句来代替直接绑定了一个`lambda`表达式的赋值语句。
++ 始终使用`def`语句来代替直接绑定了一个`lambda`表达式的赋值语句。
 
   好的:
 {% highlight python %}
@@ -776,23 +778,23 @@ f = lambda x: 2*x
 
   第一种形式意味着函数对象的名字是'f'而不是'<lambda>'的。通常这对异常追踪和字符串表述是更有用的。使用赋值语句消除的唯一好处，`lambda`表达式可以提供一个显示的`def`语句不能提供的，如，`lambda`能镶嵌在一个很长的表达式里。
 
- + 异常类应派生自`Exception`而不是`BaseException`。直接继承自`BaseException`是为`Exception`保留的，如果从`BaseException`继承，捕获到的错误总是错的。
++ 异常类应派生自`Exception`而不是`BaseException`。直接继承自`BaseException`是为`Exception`保留的，如果从`BaseException`继承，捕获到的错误总是错的。
 
   设计异常结构层次，应基于那些可能出现异常的代码，而不是在出现异常后的。编码的时候，以回答“出了什么问题？”为目标，而不是仅仅指出“这里出现了问题”（见 [PEP 3151](https://www.python.org/dev/peps/pep-3151) 一个内建异常结构层次的例子）。
 
   类的命名约定适用于异常，如果异常类是一个错误，你应该给异常类加一个后缀`Error`。用于非本地流程控制或者其他形式的信号的非错误异常不需要一个特殊的后缀。
 
- + 适当的使用异常链。在 Python 3 里，`raise X from Y`用于表明明确的替代者，不丢失原有的回溯信息。
++ 适当的使用异常链。在 Python 3 里，`raise X from Y`用于表明明确的替代者，不丢失原有的回溯信息。
 
   有意替换一个内部的异常时（在 Python 2 用`raise X`，Python 3.3+ 用`raise X from None`），确保相关的细节全部转移给了新异常（例如，把`KeyError`变成`AttributeError`时保留属性名，或者把原始异常的错误信息嵌在新异常里）。
 
- + 在 Python 2 里抛出异常时，用`raise ValueError('message')`代替旧式的`raise ValueError, 'message'`。
++ 在 Python 2 里抛出异常时，用`raise ValueError('message')`代替旧式的`raise ValueError, 'message'`。
 
-   在 Python 3 之后的语法里，旧式的异常抛出方式是非法的。
+  在 Python 3 之后的语法里，旧式的异常抛出方式是非法的。
 
-   使用括号形式的异常意味着，当你传给异常的参数过长或者包含字符串格式化时，你就不需要使用续行符了，这要感谢括号！
+  使用括号形式的异常意味着，当你传给异常的参数过长或者包含字符串格式化时，你就不需要使用续行符了，这要感谢括号！
 
- + 捕获异常时，尽可能使用明确的异常，而不是用一个空的`except:`语句。
++ 捕获异常时，尽可能使用明确的异常，而不是用一个空的`except:`语句。
 
   例如，用：
 {% highlight python %}
@@ -809,7 +811,7 @@ except ImportError:
    1. 如果异常处理程序会打印出或者记录回溯信息；至少用户意识到错误的存在。
    2. 如果代码需要做一些清理工作，但后面用`raise`向上抛出异常。`try .. finally`是处理这种情况更好的方式。
 
- + 绑定异常给一个名字时，最好使用 Python 2.6 里添加的明确的名字绑定语法：
++ 绑定异常给一个名字时，最好使用 Python 2.6 里添加的明确的名字绑定语法：
 
 {% highlight python %}
 try:
@@ -820,9 +822,9 @@ except Exception as exc:
 
   Python 3 只支持这种语法，避免与基于逗号的旧式语法产生二义性。
 
- + 捕获操作系统错误时，最好使用 Python 3.3 里引进的明确的异常结构层次，而不是自省的`errno`值。
++ 捕获操作系统错误时，最好使用 Python 3.3 里引进的明确的异常结构层次，而不是自省的`errno`值。
 
- + 此外，对于所有的`try/except`语句来说，限制`try`里面有且仅有绝对必要的代码。在强调一次，这能避免屏蔽错误。
++ 此外，对于所有的`try/except`语句来说，限制`try`里面有且仅有绝对必要的代码。在强调一次，这能避免屏蔽错误。
 
   好的：
 {% highlight python %}
@@ -844,9 +846,9 @@ except KeyError:
     return key_not_found(key)
 {% endhighlight %}
 
- + 当资源是本地的特定代码段，用`with`语句确保其在使用后被立即干净的清除了，`try/finally`也是也接受的。
++ 当资源是本地的特定代码段，用`with`语句确保其在使用后被立即干净的清除了，`try/finally`也是也接受的。
 
- + 当它们做一些除了获取和释放资源之外的事的时候，上下文管理器应该通过单独的函数或方法调用。例如：
++ 当它们做一些除了获取和释放资源之外的事的时候，上下文管理器应该通过单独的函数或方法调用。例如：
 
   好的：
 {% highlight python %}
@@ -862,7 +864,7 @@ with conn:
 
   第二个例子没有提供任何信息来表明`__enter__`和`__exit__`方法在完成一个事务后做了一些除了关闭连接以外的其它事。在这种情况下明确是很重要的。
 
- + 坚持使用`return`语句。函数内的`return`语句都应该返回一个表达式，或者`None`。如果一个`return`语句返回一个表达式，另一个没有返回值的应该用`return None`清晰的说明，并且在一个函数的结尾应该明确使用一个`return`语句（如果有返回值的话）。
++ 坚持使用`return`语句。函数内的`return`语句都应该返回一个表达式，或者`None`。如果一个`return`语句返回一个表达式，另一个没有返回值的应该用`return None`清晰的说明，并且在一个函数的结尾应该明确使用一个`return`语句（如果有返回值的话）。
 
   好的：
 {% highlight python %}
@@ -890,20 +892,20 @@ def bar(x):
     return math.sqrt(x)
 {% endhighlight %}
 
- + 用字符串方法代替字符串模块。
++ 用字符串方法代替字符串模块。
 
-   字符串方法总是更快，与 unicode 字符串共享 API。如果需要向后兼容性覆盖这个规则，需要 Python 2.0 以上的版本。
+  字符串方法总是更快，与 unicode 字符串共享 API。如果需要向后兼容性覆盖这个规则，需要 Python 2.0 以上的版本。
 
- + 用`''.startswith()`和`''.endswith()`代替字符串切片来检查前缀和后缀。
++ 用`''.startswith()`和`''.endswith()`代替字符串切片来检查前缀和后缀。
 
-   `startswith()`和`endswith()`是更简洁的，不容易出错的。例如：
+  `startswith()`和`endswith()`是更简洁的，不容易出错的。例如：
 {% highlight python %}
 Yes: if foo.startswith('bar'):
 No:  if foo[:3] == 'bar':
 {% endhighlight %}
 
- + 对象类型的比较应该始终使用`isinstance()`而不是直接比较。
-  
++ 对象类型的比较应该始终使用`isinstance()`而不是直接比较。
+ 
 {% highlight python %}
 Yes: if isinstance(obj, int):
 
@@ -918,7 +920,7 @@ if isinstance(obj, basestring):
 
   注意，在 Python 3 里面，`unicode`和`basestring`已经不存在了（只有`str`），`byte`对象不再是字符串的一种（被一个整数序列替代）。
 
- + 对于序列（字符串、列表、元组）来说，空的序列为`False`：
++ 对于序列（字符串、列表、元组）来说，空的序列为`False`：
 
   好的：
 {% highlight python %}
@@ -932,9 +934,9 @@ if len(seq):
 if not len(seq):
 {% endhighlight %}
 
- + 不要让字符串对尾随的空格有依赖。这样的尾随空格是视觉上无法区分的，一些编辑器（or more recently, reindent.py）会将其裁剪掉。
++ 不要让字符串对尾随的空格有依赖。这样的尾随空格是视觉上无法区分的，一些编辑器（or more recently, reindent.py）会将其裁剪掉。
 
- + 不要用`==`比较`True`和`False`。
++ 不要用`==`比较`True`和`False`。
 
 {% highlight python %}
 Yes:   if greeting:
@@ -942,11 +944,11 @@ No:    if greeting == True:
 Worse: if greeting is True:
 {% endhighlight %}
 
- + Python 标准库将不再使用函数标注，以至于给特殊的标注风格给一个过早的承若。代替的，这些标注是留给用户去发现和体验的有用的标注风格。
++ Python 标准库将不再使用函数标注，以至于给特殊的标注风格给一个过早的承若。代替的，这些标注是留给用户去发现和体验的有用的标注风格。
 
-   建议第三方实验的标注用相关的修饰符指示标注应该如何被解释。
+  建议第三方实验的标注用相关的修饰符指示标注应该如何被解释。
 
-   早期的核心开发者尝试用函数标注显示不一致、特别的标注风格。例如：
+  早期的核心开发者尝试用函数标注显示不一致、特别的标注风格。例如：
 
     + `[str]`是很含糊的，它可能代表一个包含字符串的列表，也可能代表一个为字符串或为空的值。
 
