@@ -10,13 +10,7 @@ header-img: "img/about-bg.jpg"
 
 ***
 
-#### 自喻 "the hole digger"，细数身后那些坑：
-
-> - [<s>DeathZuo</s>](http://deathzuo.sinaapp.com/)：这个 JSP 小论坛其实只是为了给我逃课找借口～，JavaBean，Servlet 都不熟（你懂的），已关。
-> - [LTsite](https://github.com/Damnever/LTsite)：一个基于 Python WSGI 的微框架，及用其实现的小站 [D2AK](http://d2ak.sinaapp.com/)。写的很烂，等我内功足够之后，再来伺候它。
-> - [Note](https://github.com/Damnever/Note)：学习笔记，或者说待学列学，填坑速度 / 挖坑速度 < 1.0。（同时 Fork / Star > 1.0，泪...）
-> - [SoQoo](http://www.soqoo.net/)：一个研究性质的磁链搜索平台，主要是为了熟悉 Nginx，supervisor 的配置，以及框架 Tornado/jQuery/Bootstrap，数据库 MongoDB。
-> - [Toys](https://github.com/Damnever/toys)：没事的时候折腾的一些有趣的东西，同时为了更加熟悉 Git。
+## 无论你是讨厌，还是憎恨，有些东西就在那里，不会改变也不会消亡。别特么老想着改变这个改变那个改变世界，要学会如何与其共存。
 
 ---
 
