@@ -130,4 +130,77 @@ _g_singleton = Singleton()
 
 所以出现了像`tornado.IOLoop.instance()`那样的`double check`的单例模式了。在多线程的情况下，既没有同步（加锁）带来的性能下降，也没有全局变量直接实例化带来的资源浪费。
 
+---
+
+### 6-25 补充（使用 decorator）：
+
+https://wiki.python.org/moin/PythonDecoratorLibrary#Singleton
+
+{% highlight python %}
+import functools
+
+def singleton(cls):
+    ''' Use class as singleton. '''
+
+    cls.__new_original__ = cls.__new__
+
+    @functools.wraps(cls.__new__)
+    def singleton_new(cls, *args, **kw):
+        it =  cls.__dict__.get('__it__')
+        if it is not None:
+            return it
+
+        cls.__it__ = it = cls.__new_original__(cls, *args, **kw)
+        it.__init_original__(*args, **kw)
+        return it
+
+    cls.__new__ = singleton_new
+    cls.__init_original__ = cls.__init__
+    cls.__init__ = object.__init__
+
+    return cls
+
+#
+# Sample use:
+#
+
+@singleton
+class Foo:
+    def __new__(cls):
+        cls.x = 10
+        return object.__new__(cls)
+
+    def __init__(self):
+        assert self.x == 10
+        self.x = 15
+
+assert Foo().x == 15
+Foo().x = 20
+assert Foo().x == 20
+{% endhighlight %}
+
+https://wiki.python.org/moin/PythonDecoratorLibrary#The_Sublime_Singleton
+
+{% highlight python %}
+def singleton(cls):
+    instance = cls()
+    instance.__call__ = lambda: instance
+    return instance
+
+#
+# Sample use
+#
+
+@singleton
+class Highlander:
+    x = 100
+    # Of course you can have any attributes or methods you like.
+
+Highlander() is Highlander() is Highlander #=> True
+id(Highlander()) == id(Highlander) #=> True
+Highlander().x == Highlander.x == 100 #=> True
+Highlander.x = 50
+Highlander().x == Highlander.x == 50 #=> True
+{% endhighlight %}
+
 ***
