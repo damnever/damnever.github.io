@@ -178,7 +178,7 @@ setup(
 这里直接编译成动态链接库，并在当前目录下启动解释器：
 
 {% highlight python %}
-[10:00:58] » gcc sumnum.c -fPIC -shared -o sumnum.so
+[10:00:00] » gcc sumnum.c -fPIC -shared -o sumnum.so
  /vagrant/Python/Test/C
 [10:00:58] » python
 Python 2.7.10 (default, Jul 12 2015, 16:54:16)
