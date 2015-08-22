@@ -54,8 +54,8 @@ if __name__ == '__main__':
 
 请求这个页面的时候能立即得到响应，这里的后台任务造化还不错也能正常执行：
 
-![http :8888/]({{ site.baseurl }}/img/post/2015-08-22-01.jpg)
-![python server.py]({{ site.baseurl }}/img/post/2015-08-22-02.jpg)
+![http :8888/]({{ site.baseurl }}/img/post/2015-08-22-01.png)
+![python server.py]({{ site.baseurl }}/img/post/2015-08-22-02.png)
 
 诶呦，还不错喔~ 页面阻塞的问题如此轻易的就解决了.........
 
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 
 需要运行`executor.py`来执行任务。
 
-![python executor.py]({{ site.baseurl }}/img/post/2015-08-22-03.jpg)
+![python executor.py]({{ site.baseurl }}/img/post/2015-08-22-03.png)
 
 还有一些需要完善的地方，来日再战！
 
