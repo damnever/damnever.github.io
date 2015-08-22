@@ -19,7 +19,7 @@ tags:
 
 首先能想到的最暴力最直接的解决方案就是，起一个后台进程（线程），把任务扔到里面去也不管其死活任由其发展，下面实验一下：
 
-```Python
+```python
 # -*- coding: utf-8 -*-
 
 import time
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
 下面是一个例子([example.py](https://github.com/Damnever/Chat-Room/blob/master/taskq/example.py))：
 
-```Python
+```python
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
