@@ -203,4 +203,8 @@ Highlander.x = 50
 Highlander().x == Highlander.x == 50 #=> True
 {% endhighlight %}
 
+### 8-27 更：
+
+我认为政治正确的单例模式，见：[singleton.py](./https://github.com/Damnever/Note/blob/master/singleton.py)
+
 ***
