@@ -23,7 +23,7 @@ tags:
 
 ---
 
-我认为位操作是实现用户权限的最好方式，这里我展示下我们如何用`MySQL`来实现。
+我([suresh-kamrushi](http://stackoverflow.com/users/1900692/suresh-kamrushi))认为位操作是实现用户权限的最好方式，这里我展示下我们如何用`MySQL`来实现。
 
 下面是一个示例表和一些示例数据：
 
