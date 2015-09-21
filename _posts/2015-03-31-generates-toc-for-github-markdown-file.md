@@ -55,7 +55,7 @@ optional arguments:
 ---
 `-S`参数后接源`Markdown`文件路径，`-D`后面接要写入的文件路径，相对或绝对路径都行，不指定目的文件，直接打印在屏幕上。
 
-好吧我又废话了，脚本源文件在这： [toc_gen.py](https://github.com/Damnever/toys/blob/master/toc_gen.py)。
+好吧我又废话了，脚本源文件在这： [toc_gen.py](https://github.com/Damnever/Note/blob/master/Python-scripts/toc_gen.py)。
 
 ---
 

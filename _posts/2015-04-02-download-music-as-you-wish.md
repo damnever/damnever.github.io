@@ -58,7 +58,7 @@ tags:
 *damnever->>> python luoo_download.py 621 1
 {% endhighlight %}
 
-简单的代码[luoo_download.py](https://github.com/Damnever/toys/blob/master/luoo_download.py)仅供参考，不排除网站做出资源调整的可能:
+简单的代码仅供参考，不排除网站做出资源调整的可能:
 {% highlight python %}
 from __future__ import print_function
 
