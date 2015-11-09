@@ -6,20 +6,11 @@ description: "I'm Damnever (X.C.Dong)."
 header-img: "img/about-bg.jpg"
 ---
 
-**就读于[林坑大（2012～）](http://jsj.csuft.edu.cn/index.htm)。身残智缺，在迷雾之中游走数年：[人在 Qi 途]({{ site.baseurl }}/oldpage/index.html)**。
+就读于[林坑大（2012～）](http://jsj.csuft.edu.cn/index.htm)。身残智缺，在迷雾之中游走数年：[人在 Qi 途]({{ site.baseurl }}/oldpage/index.html)。
 
 ***
 
-** There you go man, keep as cool as you can. **
-
-
----
-
-#### 联系我
-> - E-mail: dxc.wolf#gmail.com (# -> @)
-> - 在全球最大的同性交友社区[Github](https://github.com/Damnever)上 Star/Fork/Follow me O(∩_∩)O~.
-
-
+### &emsp;&emsp;<span style="color:red;">↓</span><span style="color:orange;">↑</span><span style="color:yellow;">↓</span><span style="color:green;">↑</span><span style="color:cyan;">↓</span><span style="color:blue;">↑</span><span style="color:purple;">↓</span>
 
 ***
 
