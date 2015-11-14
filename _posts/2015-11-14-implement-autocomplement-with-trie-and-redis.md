@@ -1,11 +1,11 @@
 --
 layout:      post
-title:       关于自动提示/补全
+title:       关于自动提示|补全
 subtitle:    Trie（前缀树）/Redis（基于内存的数据库）
 date:        2015-11-14 16:00:11
 author:      Damnever
 keywords:    autocomplete, trie, redis
-description: 用 Trie 或 Redis 实现自动提示/完成, implement autocomplement with trie and redis.
+description: implement autocomplement with trie and redis, 用 Trie 或 Redis 实现自动提示和补全
 categories:
   - 自动提示
 tags:
