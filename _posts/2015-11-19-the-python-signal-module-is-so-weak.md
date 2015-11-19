@@ -112,7 +112,7 @@ gcc _sigpending.c -fPIC -shared -I /usr/include/python2.7/ -o _sigpending.so
 ```Python
 import contextlib
 
-from ._sigpending import save_mask, pending_and_restore
+from _sigpending import save_mask, pending_and_restore
 
 
 @contextlib.contextmanager
@@ -128,7 +128,7 @@ def sigpending(*signos):
 import time
 import signal
 
-from dping.sigpending import sigpending
+from sigpending import sigpending
 
 
 def main():
