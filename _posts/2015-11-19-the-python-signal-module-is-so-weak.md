@@ -1,6 +1,6 @@
 ---
 layout:      post
-title:       Python 对信号的支持简直弱爆了
+title:       Python 2 对信号的支持简直弱爆了
 subtitle:    no zuo no die，还好了解那么一丁点 unix 环境编程...
 date:        2015-11-19 15:00:11
 author:      Damnever
@@ -13,6 +13,8 @@ tags:
   - signal
 
 ---
+
+（更：原来 Python 3 已经支持 `sigprocmask/sigpending` 这些了，弃 Python 2 保平安！）
 
 最近在倒腾一个 [ping](https://github.com/Damnever/dping) 程序，实现 ping 就不多说了，主要就是构造和解析 ICMP 报文，网上有很多介绍 ICMP 协议的文章，讲得很清楚了，我就不卖瓜了（自己都不敢买，更别说夸了。。。）。
 
