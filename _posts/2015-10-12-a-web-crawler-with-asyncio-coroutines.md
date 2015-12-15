@@ -14,6 +14,8 @@ tags:
 
 ---
 
+XXX: [秉着作死才不会死的原则](https://github.com/Damnever/Note/tree/master/Python-scripts/coio)，发现自己还是图样，[tornado](https://github.com/tornadoweb/tornado) 或许是个很好的开始。。。
+
 <span class="caption text-muted">糙译还请指教！我最大的敌人是我自己，看我如何击败我......</span>
 
 原文链接：[http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html](http://aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)
