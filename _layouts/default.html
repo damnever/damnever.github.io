@@ -13,4 +13,16 @@
 
 </body>
 
+<script type="text/javascript">
+    alert("This site has been deprecated, redirect to damnever.com in 3 seconds.");
+    var timeLeft = 3;
+    window.setInterval(function(){
+        if (timeLeft == 0) {
+            window.location.href = "http://drafts.damnever.com/";
+        } else {
+            timeLeft -= 1;
+        }
+    }, 1000);
+</script>
+
 </html>
